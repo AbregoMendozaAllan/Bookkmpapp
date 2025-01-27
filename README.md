@@ -51,10 +51,6 @@ Bookpedia is a Kotlin Multiplatform project that provides an interactive book di
 - Modern UI toolkit used to build responsive and dynamic user interfaces.
 - Utilizes **Compose Navigation** for handling screen transitions.
 
-### 6. **Custom Animations**
-
-- Enhances the user experience with seamless and visually appealing transitions between screens.
-
 ---
 
 ## Architecture
@@ -113,7 +109,7 @@ bookpedia/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/bookpedia.git
+   git clone https://github.com/AbregoMendozaAllan/Bookkmpapp.git
    ```
 2. Open the project in Android Studio.
 3. Sync Gradle to download all dependencies.
