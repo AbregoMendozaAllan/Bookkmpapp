@@ -4,7 +4,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.jetbrains.kotlin.serialization)
@@ -26,7 +26,7 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "ComposeApp"
+            baseName = "Bookpedia"
             isStatic = true
         }
     }
@@ -70,8 +70,6 @@ kotlin {
 
             implementation(libs.bundles.ktor)
             implementation(libs.bundles.coil)
-
-            implementation(projects.features.bookpedia)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
@@ -89,15 +87,11 @@ kotlin {
 }
 
 android {
-    namespace = "com.eonarma.bookkmpapp"
+    namespace = "com.eonarma.bookpedia"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "com.eonarma.bookkmpapp"
         minSdk = libs.versions.android.minSdk.get().toInt()
-        targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = 1
-        versionName = "1.0"
     }
     packaging {
         resources {
@@ -109,6 +103,10 @@ android {
             isMinifyEnabled = false
         }
     }
+    compose.resources {
+        publicResClass = true //added for resources
+        generateResClass = always //added for resources
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -118,17 +116,4 @@ android {
 dependencies {
     debugImplementation(compose.uiTooling)
 }
-
-compose.desktop {
-    application {
-        mainClass = "com.eonarma.bookkmpapp.MainKt"
-
-        nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "com.eonarma.bookkmpapp"
-            packageVersion = "1.0.0"
-        }
-    }
-}
-
 
