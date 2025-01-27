@@ -99,22 +99,22 @@ BookKMPApp/
                 └── com/
                     └── eonarma/
                         └── bookkmpapp/
-    └── bookpedia/
-        └── src/
-            └── commonMain/
-                └── kotlin/
-                    └── com/
-                        └── eonarma/
-                            └── bookpedia/
-                                └── core/       // Includes files of general use Error, Result, Colors, UiText etc
-                                    └── data/
-                                    └── domain/
-                                    └── presentation/
+└── bookpedia/
+    └── src/
+        └── commonMain/
+            └── kotlin/
+                └── com/
+                    └── eonarma/
+                        └── bookpedia/
+                            └── core/       // Includes files of general use Error, Result, Colors, UiText etc
                                 └── data/
                                 └── domain/
                                 └── presentation/
-                                    └── book_list/
-                                        └── components/
+                            └── data/
+                            └── domain/
+                            └── presentation/
+                                └── book_list/
+                                    └── components/
 ```
 
 ---
