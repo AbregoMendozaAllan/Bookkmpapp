@@ -91,14 +91,30 @@ The project follows the **MVI (Model-View-Intent)** architecture:
 ## Project Structure
 
 ```
-bookpedia/
-└── app/                // Android application module
+BookKMPApp/
+└── composeApp/
     └── src/
-        └── main/
+        └── commonMain/
             └── kotlin/
-                └── presentation/   // UI layer (Jetpack Compose components)
-                └── domain/          // Business logic and use cases
-                └── data/            // API and database management
+                └── com/
+                    └── eonarma/
+                        └── bookkmpapp/
+    └── bookpedia/
+        └── src/
+            └── commonMain/
+                └── kotlin/
+                    └── com/
+                        └── eonarma/
+                            └── bookpedia/
+                                └── core/       // Includes files of general use Error, Result, Colors, UiText etc
+                                    └── data/
+                                    └── domain/
+                                    └── presentation/
+                                └── data/
+                                └── domain/
+                                └── presentation/
+                                    └── book_list/
+                                        └── components/
 ```
 
 ---
