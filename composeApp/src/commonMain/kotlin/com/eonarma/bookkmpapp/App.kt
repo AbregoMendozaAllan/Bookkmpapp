@@ -8,18 +8,14 @@ import com.eonarma.bookpedia.presentation.book_list.BookListScreenRoot
 import com.eonarma.bookpedia.presentation.book_list.BookListViewModel
 import io.ktor.client.engine.HttpClientEngine
 import org.jetbrains.compose.ui.tooling.preview.Preview
+import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 @Preview
-fun App(engine: HttpClientEngine) {
+fun App() {
+    val viewModel = koinViewModel<BookListViewModel>()
     BookListScreenRoot(
-        viewModel = remember { BookListViewModel(
-            bookRepository = DefaultBookRepository(
-                remoteBookDataSource = KtorRemoteBookDataSource(
-                    httpClient = HttpClientFactory.create(engine)
-                )
-            )
-        ) },
+        viewModel = viewModel,
         onBookClick = {
 
         }
